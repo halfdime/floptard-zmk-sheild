@@ -1,0 +1,12 @@
+if SHIELD_FLOPTARD_LEFT
+	config ZMK_KEYBOARD_NAME
+		default "Floptard"
+
+	config ZMK_SPLIT_ROLE_CENTRAL
+		default y
+endif
+
+if SHIELD_FLOPTARD_LEFT || SHIELD_FLOPTARD_RIGHT
+	config ZMK_SPLIT
+		default y
+endif
