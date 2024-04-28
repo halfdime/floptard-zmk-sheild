@@ -1,5 +1,5 @@
 config SHIELD_FLOPTARD_LEFT
-	def_bool $(sheilds_list_contains, floptard_left)
+	def_bool $(sheilds_list_contains,floptard_left)
 
 config SHIELD_FLOPTARD_RIGHT
-	def_bool $(sheilds_list_contains, floptard_right)
+	def_bool $(sheilds_list_contains,floptard_right)
