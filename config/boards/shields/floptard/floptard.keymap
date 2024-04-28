@@ -1,7 +1,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/matrix_transform.h>
 
 #define L_MAIN 0
 #define L_RAISE 1
@@ -9,7 +8,9 @@
 #define L_GAME 3
 
 #define DEFAULT_TAPTERM_MS 200
-#define COMBO_TIMEOUT 50
+#define COMBO_TIMEOUT 200
+
+#define RC(row, col) (((row) * 12) + (col))
 
 // Tab align to 4 spaces or perish
 
@@ -19,21 +20,21 @@
 
 		combo_esc {
 			timeout-ms = <COMBO_TIMEOUT>;
-			key-positions = <RC(0,0) RC(1,0)>;
+			key-positions = <RC(0,0) RC(1,0)>; // Grave and Tab
 			bindings = <&kp ESC>;
 			layers =  <L_MAIN L_GAME>;
 		};
 
 		combo_game_layer {
 			timeout-ms = <COMBO_TIMEOUT>;
-			key-positions = <RC(4,2) RC(4,9)>;
+			key-positions = <RC(4,0) RC(4,7)>; // Outside thumbs
 			bindings = <&to L_GAME>;
 			layers =  <L_MAIN>;
 		};
 
 		combo_leave_game_layer {
 			timeout-ms = <COMBO_TIMEOUT>;
-			key-positions = <RC(4,2) RC(4,9)>;
+			key-positions = <RC(4,0) RC(4,7)>; // Outside thumbs
 			bindings = <&to L_MAIN>;
 			layers =  <L_GAME>;
 		};
