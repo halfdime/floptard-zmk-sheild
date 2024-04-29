@@ -13,13 +13,22 @@
 
 #define KRC(row, col) (((row) * 12) + (col))
 #define BTP_SEL(PROF) &bt BT_SEL PROF
+#define CAREFUL_KEY(BINDING) \
+	{
+		compatible = "zmk,behavior-hold-tap";
+		#binding-cells = <0>;
 
-#define GCOMBO(NAME, BINDINGS, KEYPOS) \
-	combo_##NAME { \
-		bindings = <BINDINGS>; \
-		timeout-ms = <30>; \
-		key-positions = <KEYPOS>; \
+		flavor = "hold-preferred";
+		tapping-term-ms = <MEANT_TO_TAP_TIME>;
+		bindings = <&none>, <BINDING>;
 	};
+
+// #define GCOMBO(NAME, BINDINGS, KEYPOS) \
+// 	combo_##NAME { \
+// 		bindings = <BINDINGS>; \
+// 		timeout-ms = <30>; \
+// 		key-positions = <KEYPOS>; \
+// 	};
 
 
 // Tab align to 4 spaces or perish
@@ -62,18 +71,9 @@
 			tapping-term-ms = <DEFAULT_TAPTERM_MS>;
 			bindings = <&kp RSHIFT>, <&kp RCTRL>;
 		};
-		#define CAREFUL_KEY(NAME, BINDING) \
-			careful_##NAME {
-				compatible = "zmk,behavior-hold-tap";
-				#binding-cells = <0>;
 
-				flavor = "hold-preferred";
-				tapping-term-ms = <MEANT_TO_TAP_TIME>;
-				bindings = <&none>, <BINDING>;
-			};
-
-		boot: CAREFUL_KEY(boot, &bootloader);
-		bt_clr: CAREFUL_KEY(bt_clear, &bt BT_CLR);
+		boot: careful_boot CAREFUL_KEY(&bootloader);
+		bt_clr: careful_bt_clear CAREFUL_KEY(&bt BT_CLR);
 };
 
 	keymap {
