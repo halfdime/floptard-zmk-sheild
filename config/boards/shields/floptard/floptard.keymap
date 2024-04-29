@@ -14,13 +14,13 @@
 
 #define KRC(row, col) (((row) * 12) + (col))
 #define BTP_SEL(PROF) &bt BT_SEL PROF
-// #define CAREFUL_KEY(BINDING)\
-// 			compatible = "zmk,behavior-hold-tap";\
-// 			#binding-cells = <0>;\
-// \
-// 			flavor = "hold-preferred";\
-// 			tapping-term-ms = <MEANT_TO_TAP_TIME>;\
-// 			bindings = <&none>, <BINDING>;
+#define CAREFUL_KEY(BINDING)\
+			compatible = "zmk,behavior-hold-tap";\
+			#binding-cells = <2>;\
+\
+			flavor = "hold-preferred";\
+			tapping-term-ms = <MEANT_TO_TAP_TIME>;\
+			bindings = <&none>, <BINDING>;
 
 // #define GCOMBO(NAME, BINDINGS, KEYPOS) \
 // 	combo_##NAME { \
@@ -71,23 +71,9 @@
 			bindings = <&kp RSHIFT>, <&kp RCTRL>;
 		};
 
-		c_boot: careful_boot {
-			compatible = "zmk,behavior-hold-tap";
-			#binding-cells = <0>;
+		c_boot: careful_boot {CAREFUL_KEY(&bootloader)};
 
-			flavor = "hold-preferred";
-			tapping-term-ms = <MEANT_TO_TAP_TIME>;
-			bindings = <&none>, <&bootloader>;
-		};
-
-		bt_clr: careful_bt_clear {
-			compatible = "zmk,behavior-hold-tap";
-			#binding-cells = <0>;
-
-			flavor = "hold-preferred";
-			tapping-term-ms = <MEANT_TO_TAP_TIME>;
-			bindings = <&none>, <&bt BT_CLR>;
-		};
+		bt_clr: careful_bt_clear {CAREFUL_KEY(&bt BT_CLR)};
 };
 
 	keymap {
