@@ -79,7 +79,7 @@
 
 			flavor = "hold-preferred";
 			tapping-term-ms = <MEANT_TO_TAP_TIME>;
-			bindings = <&none (&bootloader)>;
+			bindings = <&none>, <(&bootloader)>;
 		};
 		bt_clr: careful_bt_clear {CAREFUL_KEY(&bt BT_CLR)};
 };
