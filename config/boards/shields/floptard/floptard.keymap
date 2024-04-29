@@ -11,17 +11,16 @@
 #define COMBO_TIMEOUT 50
 #define MEANT_TO_TAP_TIME 2000
 
-#define RC(row, col) (((row) * 12) + (col))
+#define KRC(row, col) (((row) * 12) + (col))
 #define BTP_SEL(PROF) &bt BT_SEL PROF
-#define CAREFUL_KEY(NAME, BINDING) \
-	careful_##NAME {
-		compatible = "zmk,behavior-hold-tap";
-		#binding-cells = <0>;
 
-		flavor = "hold-preferred";
-		tapping-term-ms = <MEANT_TO_TAP_TIME>;
-		bindings = <&none>, <BINDING>;
+#define GCOMBO(NAME, BINDINGS, KEYPOS) \
+	combo_##NAME { \
+		bindings = <BINDINGS>; \
+		timeout-ms = <30>; \
+		key-positions = <KEYPOS>; \
 	};
+
 
 // Tab align to 4 spaces or perish
 
@@ -35,21 +34,21 @@
 
 		combo_esc {
 			timeout-ms = <COMBO_TIMEOUT>;
-			key-positions = <RC(0,0) RC(1,0)>; // Grave and Tab
+			key-positions = <KRC(0,0) KRC(1,0)>; // Grave and Tab
 			bindings = <&kp ESC>;
 			layers =  <L_MAIN L_GAME>;
 		};
 
 		combo_game_layer {
 			timeout-ms = <COMBO_TIMEOUT>;
-			key-positions = <RC(4,0) RC(4,7)>; // Outside thumbs
+			key-positions = <KRC(4,0) KRC(4,7)>; // Outside thumbs
 			bindings = <&to L_GAME>;
 			layers =  <L_MAIN>;
 		};
 
 		combo_leave_game_layer {
 			timeout-ms = <COMBO_TIMEOUT>;
-			key-positions = <RC(4,0) RC(4,7)>; // Outside thumbs
+			key-positions = <KRC(4,0) KRC(4,7)>; // Outside thumbs
 			bindings = <&to L_MAIN>;
 			layers =  <L_GAME>;
 		};
@@ -63,6 +62,15 @@
 			tapping-term-ms = <DEFAULT_TAPTERM_MS>;
 			bindings = <&kp RSHIFT>, <&kp RCTRL>;
 		};
+		#define CAREFUL_KEY(NAME, BINDING) \
+			careful_##NAME {
+				compatible = "zmk,behavior-hold-tap";
+				#binding-cells = <0>;
+
+				flavor = "hold-preferred";
+				tapping-term-ms = <MEANT_TO_TAP_TIME>;
+				bindings = <&none>, <BINDING>;
+			};
 
 		boot: CAREFUL_KEY(boot, &bootloader);
 		bt_clr: CAREFUL_KEY(bt_clear, &bt BT_CLR);
