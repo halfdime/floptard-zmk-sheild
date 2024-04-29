@@ -122,7 +122,7 @@
 			bindings = <
 				&kp ESC		&kp F1		&kp F2		&kp F3			&kp F4			&kp F5		/*║*/	&kp F6		&kp F7		&kp F8		&kp F9		&kp F10		&kp BSPC
 				&kp TAB		&soft_off	&c_boot		&out OUT_USB	&out OUT_BLE	&none		/*║*/	&kp MINUS	&kp EQUAL	&kp LBKT	&kp RBKT	&kp F11		&c_boot
-				&kp LCTRL	BTP_SEL(0)	BTP_SEL(1)	BTP_SEL(2)		BTP_SEL(3)		&bt_clr		/*║*/	&kp LEFT	&kp DOWN	&kp UP		&kp RIGHT	&kp F12		&kp RET
+				&kp LCTRL	&none	&none	&none		&none		&bt_clr		/*║*/	&kp LEFT	&kp DOWN	&kp UP		&kp RIGHT	&kp F12		&kp RET
 				&kp LSHFT	&none		&kp C_PREV	&kp C_NEXT		&kp C_PP		&none		/*║*/	&kp HOME	&kp PG_DN	&kp PG_UP	&kp END		&kp PSCRN	&td_rs
 										&trans		&kp SPACE		&kp LGUI		&kp LALT	/*║*/	&kp RALT	&kp RGUI	&kp SPACE	&trans
 			>;
