@@ -13,13 +13,13 @@
 
 #define KRC(row, col) (((row) * 12) + (col))
 #define BTP_SEL(PROF) &bt BT_SEL PROF
-#define CAREFUL_KEY(BINDING)\
-			compatible = "zmk,behavior-hold-tap";\
-			#binding-cells = <0>;\
-\
-			flavor = "hold-preferred";\
-			tapping-term-ms = <MEANT_TO_TAP_TIME>;\
-			bindings = <&none>, <BINDING>;
+// #define CAREFUL_KEY(BINDING)\
+// 			compatible = "zmk,behavior-hold-tap";\
+// 			#binding-cells = <0>;\
+// \
+// 			flavor = "hold-preferred";\
+// 			tapping-term-ms = <MEANT_TO_TAP_TIME>;\
+// 			bindings = <&none>, <BINDING>;
 
 // #define GCOMBO(NAME, BINDINGS, KEYPOS) \
 // 	combo_##NAME { \
@@ -70,8 +70,23 @@
 			bindings = <&kp RSHIFT>, <&kp RCTRL>;
 		};
 
-		c_boot: careful_boot {CAREFUL_KEY(&bootloader)};
-		bt_clr: careful_bt_clear {CAREFUL_KEY(&bt BT_CLR)};
+		c_boot: careful_boot {
+			compatible = "zmk,behavior-hold-tap";
+			#binding-cells = <0>;
+
+			flavor = "hold-preferred";
+			tapping-term-ms = <MEANT_TO_TAP_TIME>;
+			bindings = <&none>, <&bootloader>;
+		};
+
+		bt_clr: careful_bt_clear {
+			compatible = "zmk,behavior-hold-tap";
+			#binding-cells = <0>;
+
+			flavor = "hold-preferred";
+			tapping-term-ms = <MEANT_TO_TAP_TIME>;
+			bindings = <&none>, <&bt BT_CLR>;
+		};
 };
 
 	keymap {
@@ -106,7 +121,7 @@
 
 			bindings = <
 				&kp ESC		&kp F1		&kp F2		&kp F3			&kp F4			&kp F5		/*║*/	&kp F6		&kp F7		&kp F8		&kp F9		&kp F10		&kp BSPC
-				&kp TAB		&soft_off	&c_boot		&out OUT_USB	&out OUT_BLE	&none		/*║*/	&kp MINUS	&kp EQUAL	&kp LBKT	&kp RBKT	&kp F11		&boot
+				&kp TAB		&soft_off	&c_boot		&out OUT_USB	&out OUT_BLE	&none		/*║*/	&kp MINUS	&kp EQUAL	&kp LBKT	&kp RBKT	&kp F11		&c_boot
 				&kp LCTRL	BTP_SEL(0)	BTP_SEL(1)	BTP_SEL(2)		BTP_SEL(3)		&bt_clr		/*║*/	&kp LEFT	&kp DOWN	&kp UP		&kp RIGHT	&kp F12		&kp RET
 				&kp LSHFT	&none		&kp C_PREV	&kp C_NEXT		&kp C_PP		&none		/*║*/	&kp HOME	&kp PG_DN	&kp PG_UP	&kp END		&kp PSCRN	&td_rs
 										&trans		&kp SPACE		&kp LGUI		&kp LALT	/*║*/	&kp RALT	&kp RGUI	&kp SPACE	&trans
