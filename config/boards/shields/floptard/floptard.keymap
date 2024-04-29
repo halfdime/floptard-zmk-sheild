@@ -20,7 +20,7 @@
 \
 			flavor = "hold-preferred";\
 			tapping-term-ms = <MEANT_TO_TAP_TIME>;\
-			bindings = <&none>, <BINDING>;
+			bindings = <&none BINDING>;
 
 // #define GCOMBO(NAME, BINDINGS, KEYPOS) \
 // 	combo_##NAME { \
