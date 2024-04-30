@@ -30,7 +30,7 @@
 			bindings = <BINDING>, <&none>;
 
 #define COMMON_COMBO(NAME, BINDING, KEYS, LAYERS)\
-		NAME {\
+		combo_##NAME {\
 			timeout-ms = <COMBO_TIMEOUT>;\
 			key-positions = KEYS;\
 			bindings = <BINDING>;\
@@ -46,7 +46,7 @@
 		compatible = "zmk,combos";
 
 		// Grave and Tab
-		COMMON_COMBO(combo_esc, &kp ESC, <COMBO_GRAVE_TAB_KEYS>, L_MAIN L_GAME);
+		COMMON_COMBO(esc, &kp ESC, <COMBO_GRAVE_TAB_KEYS>, L_MAIN L_GAME);
 		// combo_esc {
 		// 	timeout-ms = <COMBO_TIMEOUT>;
 		// 	key-positions = <KRC(0,0) KRC(1,0)>; // Grave and Tab
@@ -55,7 +55,7 @@
 		// };
 
 		// Both layer keys
-		COMMON_COMBO(combo_game_layer, &to L_GAME, <COMBO_LAYER_KEYS>, L_MAIN L_QWERTY);
+		COMMON_COMBO(game_layer, &to L_GAME, <COMBO_LAYER_KEYS>, L_MAIN L_QWERTY);
 		// combo_game_layer {
 		// 	timeout-ms = <COMBO_TIMEOUT>;
 		// 	key-positions = <KRC(4,0) KRC(4,7)>; // Outside thumbs
@@ -63,7 +63,7 @@
 		// 	layers =  <L_MAIN>;
 		// };
 
-		COMMON_COMBO(combo_leave_game_layer, &to L_MAIN, <COMBO_LAYER_KEYS>, L_GAME);
+		COMMON_COMBO(leave_game_layer, &to L_MAIN, <COMBO_LAYER_KEYS>, L_GAME);
 		// combo_leave_game_layer {
 		// 	timeout-ms = <COMBO_TIMEOUT>;
 		// 	key-positions = <KRC(4,0) KRC(4,7)>; // Outside thumbs
@@ -71,8 +71,8 @@
 		// 	layers =  <L_GAME>;
 		// };
 
-		COMMON_COMBO(combo_qwerty_layer, &to L_QWERTY, <COMBO_SHIFT_LAYER_KEYS>, L_MAIN L_GAME);
-		COMMON_COMBO(combo_leave_qwerty_layer, &to L_MAIN, <COMBO_SHIFT_LAYER_KEYS>, L_QWERTY);
+		COMMON_COMBO(qwerty_layer, &to L_QWERTY, <COMBO_SHIFT_LAYER_KEYS>, L_MAIN L_GAME);
+		COMMON_COMBO(leave_qwerty_layer, &to L_MAIN, <COMBO_SHIFT_LAYER_KEYS>, L_QWERTY);
 	};
 
 	macros {
