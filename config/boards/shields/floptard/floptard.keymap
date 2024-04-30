@@ -16,8 +16,6 @@
 #define MEANT_TO_TAP_TIME 2000
 
 #define KRC(row, col) (((row) * 12) + (col))
-#define COMBO_LAYER_KEYS KRC(4,0) KRC(4,7)
-#define COMBO_SHIFT_LAYER_KEYS KRC(3,0) KRC(4,0) KRC(4,7)
 
 #define BTP_SEL(PROF) &bt BT_SEL PROF
 #define CAREFUL_KEY(BINDING)\
@@ -52,7 +50,7 @@
 		// };
 
 		// Both layer keys
-		combo_game_layer {COMMON_COMBO(&to L_GAME, <COMBO_LAYER_KEYS>, L_MAIN L_QWERTY)};
+		combo_game_layer {COMMON_COMBO(&to L_GAME, KRC(4,0) KRC(4,7), L_MAIN L_QWERTY)};
 		// combo_game_layer {
 		// 	timeout-ms = <COMBO_TIMEOUT>;
 		// 	key-positions = <KRC(4,0) KRC(4,7)>; // Outside thumbs
@@ -60,7 +58,7 @@
 		// 	layers =  <L_MAIN>;
 		// };
 
-		combo_leave_game_layer {COMMON_COMBO(&to L_MAIN, <COMBO_LAYER_KEYS>, L_GAME)};
+		combo_leave_game_layer {COMMON_COMBO(&to L_MAIN, KRC(4,0) KRC(4,7), L_GAME)};
 		// combo_leave_game_layer {
 		// 	timeout-ms = <COMBO_TIMEOUT>;
 		// 	key-positions = <KRC(4,0) KRC(4,7)>; // Outside thumbs
@@ -68,8 +66,8 @@
 		// 	layers =  <L_GAME>;
 		// };
 
-		combo_qwerty_layer {COMMON_COMBO(&to L_QWERTY, <COMBO_SHIFT_LAYER_KEYS>, L_MAIN L_GAME)};
-		combo_leave_qwerty_layer {COMMON_COMBO(&to L_MAIN, <COMBO_SHIFT_LAYER_KEYS>, L_QWERTY)};
+		combo_qwerty_layer {COMMON_COMBO(&to L_QWERTY, KRC(3,0) KRC(4,0) KRC(4,7), L_MAIN L_GAME)};
+		combo_leave_qwerty_layer {COMMON_COMBO(&to L_MAIN, KRC(3,0) KRC(4,0) KRC(4,7), L_QWERTY)};
 	};
 
 	macros {
