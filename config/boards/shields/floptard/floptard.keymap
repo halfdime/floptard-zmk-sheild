@@ -40,34 +40,34 @@
 	combos {
 		compatible = "zmk,combos";
 
-		// Grave and Tab
-		combo_esc {COMMON_COMBO(&kp ESC, KRC(0,0) KRC(1,0), L_MAIN L_GAME)};
-		// combo_esc {
-		// 	timeout-ms = <COMBO_TIMEOUT>;
-		// 	key-positions = <KRC(0,0) KRC(1,0)>; // Grave and Tab
-		// 	bindings = <&kp ESC>;
-		// 	layers =  <L_MAIN L_GAME>;
-		// };
-
-		// Both layer keys
-		combo_game_layer {COMMON_COMBO(&to L_GAME, KRC(4,0) KRC(4,7), L_MAIN L_QWERTY)};
-		// combo_game_layer {
-		// 	timeout-ms = <COMBO_TIMEOUT>;
-		// 	key-positions = <KRC(4,0) KRC(4,7)>; // Outside thumbs
-		// 	bindings = <&to L_GAME>;
-		// 	layers =  <L_MAIN>;
-		// };
-
-		combo_leave_game_layer {COMMON_COMBO(&to L_MAIN, KRC(4,0) KRC(4,7), L_GAME)};
-		// combo_leave_game_layer {
-		// 	timeout-ms = <COMBO_TIMEOUT>;
-		// 	key-positions = <KRC(4,0) KRC(4,7)>; // Outside thumbs
-		// 	bindings = <&to L_MAIN>;
-		// 	layers =  <L_GAME>;
-		// };
-
-		combo_qwerty_layer {COMMON_COMBO(&to L_QWERTY, KRC(3,0) KRC(4,0) KRC(4,7), L_MAIN L_GAME)};
-		combo_leave_qwerty_layer {COMMON_COMBO(&to L_MAIN, KRC(3,0) KRC(4,0) KRC(4,7), L_QWERTY)};
+		// // Grave and Tab
+		// combo_esc {COMMON_COMBO(&kp ESC, KRC(0,0) KRC(1,0), L_MAIN L_GAME)};
+		// // combo_esc {
+		// // 	timeout-ms = <COMBO_TIMEOUT>;
+		// // 	key-positions = <KRC(0,0) KRC(1,0)>; // Grave and Tab
+		// // 	bindings = <&kp ESC>;
+		// // 	layers =  <L_MAIN L_GAME>;
+		// // };
+		//
+		// // Both layer keys
+		// combo_game_layer {COMMON_COMBO(&to L_GAME, KRC(4,0) KRC(4,7), L_MAIN L_QWERTY)};
+		// // combo_game_layer {
+		// // 	timeout-ms = <COMBO_TIMEOUT>;
+		// // 	key-positions = <KRC(4,0) KRC(4,7)>; // Outside thumbs
+		// // 	bindings = <&to L_GAME>;
+		// // 	layers =  <L_MAIN>;
+		// // };
+		//
+		// combo_leave_game_layer {COMMON_COMBO(&to L_MAIN, KRC(4,0) KRC(4,7), L_GAME)};
+		// // combo_leave_game_layer {
+		// // 	timeout-ms = <COMBO_TIMEOUT>;
+		// // 	key-positions = <KRC(4,0) KRC(4,7)>; // Outside thumbs
+		// // 	bindings = <&to L_MAIN>;
+		// // 	layers =  <L_GAME>;
+		// // };
+		//
+		// combo_qwerty_layer {COMMON_COMBO(&to L_QWERTY, KRC(3,0) KRC(4,0) KRC(4,7), L_MAIN L_GAME)};
+		// combo_leave_qwerty_layer {COMMON_COMBO(&to L_MAIN, KRC(3,0) KRC(4,0) KRC(4,7), L_QWERTY)};
 	};
 
 	macros {
