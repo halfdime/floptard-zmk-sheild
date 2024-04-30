@@ -18,7 +18,6 @@
 #define KRC(row, col) (((row) * 12) + (col))
 #define COMBO_LAYER_KEYS KRC(4,0) KRC(4,7)
 #define COMBO_SHIFT_LAYER_KEYS KRC(3,0) KRC(4,0) KRC(4,7)
-#define COMBO_GRAVE_TAB_KEYS KRC(0,0) KRC(1,0)
 
 #define BTP_SEL(PROF) &bt BT_SEL PROF
 #define CAREFUL_KEY(BINDING)\
@@ -31,7 +30,7 @@
 
 #define COMMON_COMBO(BINDING, KEYS, LAYERS) \
 			timeout-ms = <COMBO_TIMEOUT>;\
-			key-positions = KEYS;\
+			key-positions = <KEYS>;\
 			bindings = <BINDING>;\
 			layers =  <LAYERS>;
 
@@ -44,7 +43,7 @@
 		compatible = "zmk,combos";
 
 		// Grave and Tab
-		combo_esc {COMMON_COMBO(&kp ESC, <COMBO_GRAVE_TAB_KEYS>, L_MAIN L_GAME)};
+		combo_esc {COMMON_COMBO(&kp ESC, KRC(0,0) KRC(1,0), L_MAIN L_GAME)};
 		// combo_esc {
 		// 	timeout-ms = <COMBO_TIMEOUT>;
 		// 	key-positions = <KRC(0,0) KRC(1,0)>; // Grave and Tab
