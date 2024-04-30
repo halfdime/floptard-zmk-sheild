@@ -67,7 +67,7 @@
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
 			bindings = <&bt BT_CLR>;
-		}
+		};
 	};
 
 	behaviors {
