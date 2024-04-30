@@ -29,7 +29,7 @@
 			tapping-term-ms = <MEANT_TO_TAP_TIME>;\
 			bindings = <BINDING>, <&none>;
 
-#define COMMON_COMBO(BINDING, KEYS, LAYERS) {\
+#define COMMON_COMBO(BINDING, KEYS, LAYERS) \
 			timeout-ms = <COMBO_TIMEOUT>;\
 			key-positions = KEYS;\
 			bindings = <BINDING>;\
