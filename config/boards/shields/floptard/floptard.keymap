@@ -8,8 +8,8 @@
 #define L_MAIN 0
 #define L_GAME 1
 #define L_QWERTY 2
-#define L_RAISE 1
-#define L_LOWER 1
+#define L_RAISE 3
+#define L_LOWER 3
 
 #define DEFAULT_TAPTERM_MS 200
 #define COMBO_TIMEOUT 50
@@ -43,13 +43,13 @@
 		// Grave and Tab
 		combo_esc {COMMON_COMBO(&kp ESC, KRC(0,0) KRC(1,0), L_MAIN L_GAME)};
 
-		// Both layer keys
-		combo_game_layer {COMMON_COMBO(&to L_GAME, KRC(4,0) KRC(4,7), L_MAIN L_QWERTY)};
-		combo_leave_game_layer {COMMON_COMBO(&to L_MAIN, KRC(4,0) KRC(4,7), L_GAME)};
-
 		// Shift + Both layer keys
-		combo_qwerty_layer {COMMON_COMBO(&to L_QWERTY, KRC(3,0) KRC(4,0) KRC(4,7), L_MAIN L_GAME)};
-		combo_leave_qwerty_layer {COMMON_COMBO(&to L_MAIN, KRC(3,0) KRC(4,0) KRC(4,7), L_QWERTY)};
+		combo_game_layer {COMMON_COMBO(&to L_GAME, KRC(3,0) KRC(4,0) KRC(4,7), L_MAIN L_QWERTY)};
+		combo_leave_game_layer {COMMON_COMBO(&to L_MAIN, KRC(3,0) KRC(4,0) KRC(4,7), L_GAME)};
+
+		// Both layer keys
+		combo_qwerty_layer {COMMON_COMBO(&to L_QWERTY, KRC(4,0) KRC(4,7), L_MAIN L_GAME)};
+		combo_leave_qwerty_layer {COMMON_COMBO(&to L_MAIN, KRC(4,0) KRC(4,7), L_QWERTY)};
 	};
 
 	macros {
