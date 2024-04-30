@@ -71,8 +71,8 @@
 		// 	layers =  <L_GAME>;
 		// };
 
-		COMMON_COMBO(combo_game_layer, &to L_QWERTY, <COMBO_SHIFT_LAYER_KEYS>, L_MAIN L_GAME);
-		COMMON_COMBO(combo_leave_game_layer, &to L_MAIN, <COMBO_SHIFT_LAYER_KEYS>, L_QWERTY);
+		COMMON_COMBO(combo_qwerty_layer, &to L_QWERTY, <COMBO_SHIFT_LAYER_KEYS>, L_MAIN L_GAME);
+		COMMON_COMBO(combo_leave_qwerty_layer, &to L_MAIN, <COMBO_SHIFT_LAYER_KEYS>, L_QWERTY);
 	};
 
 	macros {
