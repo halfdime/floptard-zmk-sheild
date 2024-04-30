@@ -160,9 +160,9 @@
  
 			bindings = <
 				&kp ESC	&kp F1		&kp F2			&kp F3			&kp F4			&kp F5		/*║*/	&kp F6		&kp F7		&kp F8		&kp F9		&kp F10		&kp DEL
+				&trans	&soft_off	&c_lboot 0 0	&out OUT_USB	&out OUT_BLE	&none		/*║*/	&kp MINUS	&kp EQUAL	&kp LBKT	&kp RBKT	&kp F11		&c_rboot 0 0
 				&kp ESC	&kp F1		&kp F2			&kp F3			&kp F4			&kp F5		/*║*/	&kp F6		&kp F7		&kp F8		&kp F9		&kp F10		&kp DEL
-				// &trans	&soft_off	&c_lboot 0 0	&out OUT_USB	&out OUT_BLE	&none		/*║*/	&kp MINUS	&kp EQUAL	&kp LBKT	&kp RBKT	&kp F11		&c_rboot 0 0
-				&trans	&C_VOL_DN	&kp C_VOL_UP	&kp C_PREV		&kp C_PP		&kp C_NEXT	/*║*/	&kp LEFT	&kp DOWN	&kp UP		&kp RIGHT	&kp F12		&trans
+				// &trans	&C_VOL_DN	&kp C_VOL_UP	&kp C_PREV		&kp C_PP		&kp C_NEXT	/*║*/	&kp LEFT	&kp DOWN	&kp UP		&kp RIGHT	&kp F12		&trans
 				&trans	BTP_SEL(0)	BTP_SEL(1)		BTP_SEL(2)		BTP_SEL(3)		&c_bt 0 0	/*║*/	&kp HOME	&kp PG_DN	&kp PG_UP	&kp END		&kp PSCRN	&trans
 									&trans			&trans			&trans			&trans		/*║*/	&trans		&trans		&trans		&trans
 			>;
