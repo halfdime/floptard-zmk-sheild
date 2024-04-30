@@ -79,8 +79,8 @@
 			bindings = <&kp RSHIFT>, <&kp RCTRL>;
 		};
 
-		c_lboot: careful_boot {CAREFUL_KEY(&bootloader)};
-		c_rboot: careful_boot {CAREFUL_KEY(&bootloader)};
+		c_lboot: left_careful_boot {CAREFUL_KEY(&bootloader)};
+		c_rboot: right_careful_boot {CAREFUL_KEY(&bootloader)};
 		c_bt: careful_bt {CAREFUL_KEY(&bt_clr)};
 };
 
