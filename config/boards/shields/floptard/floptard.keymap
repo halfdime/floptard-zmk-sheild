@@ -40,34 +40,16 @@
 	combos {
 		compatible = "zmk,combos";
 
-		// // Grave and Tab
-		// combo_esc {COMMON_COMBO(&kp ESC, KRC(0,0) KRC(1,0), L_MAIN L_GAME)};
-		// // combo_esc {
-		// // 	timeout-ms = <COMBO_TIMEOUT>;
-		// // 	key-positions = <KRC(0,0) KRC(1,0)>; // Grave and Tab
-		// // 	bindings = <&kp ESC>;
-		// // 	layers =  <L_MAIN L_GAME>;
-		// // };
-		//
-		// // Both layer keys
-		// combo_game_layer {COMMON_COMBO(&to L_GAME, KRC(4,0) KRC(4,7), L_MAIN L_QWERTY)};
-		// // combo_game_layer {
-		// // 	timeout-ms = <COMBO_TIMEOUT>;
-		// // 	key-positions = <KRC(4,0) KRC(4,7)>; // Outside thumbs
-		// // 	bindings = <&to L_GAME>;
-		// // 	layers =  <L_MAIN>;
-		// // };
-		//
-		// combo_leave_game_layer {COMMON_COMBO(&to L_MAIN, KRC(4,0) KRC(4,7), L_GAME)};
-		// // combo_leave_game_layer {
-		// // 	timeout-ms = <COMBO_TIMEOUT>;
-		// // 	key-positions = <KRC(4,0) KRC(4,7)>; // Outside thumbs
-		// // 	bindings = <&to L_MAIN>;
-		// // 	layers =  <L_GAME>;
-		// // };
-		//
-		// combo_qwerty_layer {COMMON_COMBO(&to L_QWERTY, KRC(3,0) KRC(4,0) KRC(4,7), L_MAIN L_GAME)};
-		// combo_leave_qwerty_layer {COMMON_COMBO(&to L_MAIN, KRC(3,0) KRC(4,0) KRC(4,7), L_QWERTY)};
+		// Grave and Tab
+		combo_esc {COMMON_COMBO(&kp ESC, KRC(0,0) KRC(1,0), L_MAIN L_GAME)};
+
+		// Both layer keys
+		combo_game_layer {COMMON_COMBO(&to L_GAME, KRC(4,0) KRC(4,7), L_MAIN L_QWERTY)};
+		combo_leave_game_layer {COMMON_COMBO(&to L_MAIN, KRC(4,0) KRC(4,7), L_GAME)};
+
+		// Shift + Both layer keys
+		combo_qwerty_layer {COMMON_COMBO(&to L_QWERTY, KRC(3,0) KRC(4,0) KRC(4,7), L_MAIN L_GAME)};
+		combo_leave_qwerty_layer {COMMON_COMBO(&to L_MAIN, KRC(3,0) KRC(4,0) KRC(4,7), L_QWERTY)};
 	};
 
 	macros {
@@ -113,41 +95,41 @@
 			>;
 		};
 
-		// game_layer {
-		// 	//                                   Game Layer
-		// 	// =========================================================================================
-		// 	// | [^] | [^]  | [^] | [^] | [^] | [^] | ║ | [^] | [^] | [^] | [^] | [^] | [^] |
-		// 	// |  T  | TAB  |  Q  |  W  |  E  |  R  | ║ |  Y  |  U  |  I  |  O  |  P  | [^] |
-		// 	// |  G  | CTRL |  A  |  S  |  D  |  F  | ║ |  H  |  J  |  K  |  L  |  ;  | [^] |
-		// 	// |  B  | SHFT |  Z  |  X  |  C  |  V  | ║ |  N  |  M  |  ,  |  .  |  /  | [^] |
-		// 	//              | [^] | [^] | [^] | [^] | ║ | [^] | [^] | [^] | [^] |
-		//
-		// 	bindings = <
-		// 		&trans	&trans		&trans	&trans	&trans	&trans	/*║*/	&trans	&trans	&trans		&trans		&trans		&trans
-		// 		&kp T	&kp TAB		&kp Q	&kp W	&kp E	&kp R	/*║*/	&kp Y	&kp U	&kp I		&kp O		&kp P		&trans
-		// 		&kp G	&kp LCTRL	&kp A	&kp S	&kp D	&kp F	/*║*/	&kp H	&kp J	&kp K		&kp L		&kp SEMI	&trans
-		// 		&kp B	&kp LSHFT	&kp Z	&kp X	&kp C	&kp V	/*║*/	&kp N	&kp M	&kp COMMA	&kp DOT		&kp FSLH	&trans
-		// 							&trans	&trans	&trans	&trans	/*║*/	&trans	&trans	&trans		&trans
-		// 	>;
-		// };
-		//
-		// qwerty_layer {
-		// 	//                                 Qwerty Layer
-		// 	// =========================================================================================
-		// 	// | [^] | [^] | [^] | [^] | [^] | [^] | ║ | [^] | [^] | [^] | [^] | [^] | [^] |
-		// 	// | [^] |  Q  |  W  |  E  |  R  |  T  | ║ |  Y  |  U  |  I  |  O  |  P  | [^] |
-		// 	// | [^] |  A  |  S  |  D  |  F  |  G  | ║ |  H  |  J  |  K  |  L  |  ;  | [^] |
-		// 	// | [^] |  Z  |  X  |  C  |  V  |  B  | ║ |  N  |  M  |  ,  |  .  |  /  | [^] |
-		// 	//             | [^] | [^] | [^] | [^] | ║ | [^] | [^] | [^] | [^] |
-		//
-		// 	bindings = <
-		// 		&kp GRAVE	&trans	&trans	&trans	&trans	&trans	/*║*/	&trans	&trans	&trans		&trans		&trans		&trans
-		// 		&kp TAB		&kp Q	&kp W	&kp E	&kp R	&kp T	/*║*/	&kp Y	&kp U	&kp I		&kp O		&kp P		&trans
-		// 		&kp LCTRL	&kp A	&kp S	&kp D	&kp F	&kp G	/*║*/	&kp H	&kp J	&kp K		&kp L		&kp SEMI	&trans
-		// 		&kp LSHFT	&kp Z	&kp X	&kp C	&kp V	&kp B	/*║*/	&kp N	&kp M	&kp COMMA	&kp DOT		&kp FSLH	&trans
-		// 							&trans	&trans	&trans	&trans	/*║*/	&trans	&trans	&trans		&trans
-		// 	>;
-		// };
+		game_layer {
+			//                                   Game Layer
+			// =========================================================================================
+			// | [^] | [^]  | [^] | [^] | [^] | [^] | ║ | [^] | [^] | [^] | [^] | [^] | [^] |
+			// |  T  | TAB  |  Q  |  W  |  E  |  R  | ║ |  Y  |  U  |  I  |  O  |  P  | [^] |
+			// |  G  | CTRL |  A  |  S  |  D  |  F  | ║ |  H  |  J  |  K  |  L  |  ;  | [^] |
+			// |  B  | SHFT |  Z  |  X  |  C  |  V  | ║ |  N  |  M  |  ,  |  .  |  /  | [^] |
+			//              | [^] | [^] | [^] | [^] | ║ | [^] | [^] | [^] | [^] |
+
+			bindings = <
+				&trans	&trans		&trans	&trans	&trans	&trans	/*║*/	&trans	&trans	&trans		&trans		&trans		&trans
+				&kp T	&kp TAB		&kp Q	&kp W	&kp E	&kp R	/*║*/	&kp Y	&kp U	&kp I		&kp O		&kp P		&trans
+				&kp G	&kp LCTRL	&kp A	&kp S	&kp D	&kp F	/*║*/	&kp H	&kp J	&kp K		&kp L		&kp SEMI	&trans
+				&kp B	&kp LSHFT	&kp Z	&kp X	&kp C	&kp V	/*║*/	&kp N	&kp M	&kp COMMA	&kp DOT		&kp FSLH	&trans
+									&trans	&trans	&trans	&trans	/*║*/	&trans	&trans	&trans		&trans
+			>;
+		};
+
+		qwerty_layer {
+			//                                 Qwerty Layer
+			// =========================================================================================
+			// | [^] | [^] | [^] | [^] | [^] | [^] | ║ | [^] | [^] | [^] | [^] | [^] | [^] |
+			// | [^] |  Q  |  W  |  E  |  R  |  T  | ║ |  Y  |  U  |  I  |  O  |  P  | [^] |
+			// | [^] |  A  |  S  |  D  |  F  |  G  | ║ |  H  |  J  |  K  |  L  |  ;  | [^] |
+			// | [^] |  Z  |  X  |  C  |  V  |  B  | ║ |  N  |  M  |  ,  |  .  |  /  | [^] |
+			//             | [^] | [^] | [^] | [^] | ║ | [^] | [^] | [^] | [^] |
+
+			bindings = <
+				&kp GRAVE	&trans	&trans	&trans	&trans	&trans	/*║*/	&trans	&trans	&trans		&trans		&trans		&trans
+				&kp TAB		&kp Q	&kp W	&kp E	&kp R	&kp T	/*║*/	&kp Y	&kp U	&kp I		&kp O		&kp P		&trans
+				&kp LCTRL	&kp A	&kp S	&kp D	&kp F	&kp G	/*║*/	&kp H	&kp J	&kp K		&kp L		&kp SEMI	&trans
+				&kp LSHFT	&kp Z	&kp X	&kp C	&kp V	&kp B	/*║*/	&kp N	&kp M	&kp COMMA	&kp DOT		&kp FSLH	&trans
+									&trans	&trans	&trans	&trans	/*║*/	&trans	&trans	&trans		&trans
+			>;
+		};
 
 		lower_layer {
 			//                                    Main Layer
@@ -159,12 +141,11 @@
 			//               |  [^]  |  [^]  |  [^]  | [^] | ║ | [^]  | [^]  | [^]  | [^]  |
  
 			bindings = <
-				&kp ESC	&kp F1		&kp F2			&kp F3			&kp F4			&kp F5		/*║*/	&kp F6		&kp F7		&kp F8		&kp F9		&kp F10		&kp DEL
-				&trans	&soft_off	&c_lboot 0 0	&out OUT_USB	&out OUT_BLE	&none		/*║*/	&kp MINUS	&kp EQUAL	&kp LBKT	&kp RBKT	&kp F11		&c_rboot 0 0
-				&kp ESC	&kp F1		&kp F2			&kp F3			&kp F4			&kp F5		/*║*/	&kp F6		&kp F7		&kp F8		&kp F9		&kp F10		&kp DEL
-				// &trans	&C_VOL_DN	&kp C_VOL_UP	&kp C_PREV		&kp C_PP		&kp C_NEXT	/*║*/	&kp LEFT	&kp DOWN	&kp UP		&kp RIGHT	&kp F12		&trans
-				&trans	BTP_SEL(0)	BTP_SEL(1)		BTP_SEL(2)		BTP_SEL(3)		&c_bt 0 0	/*║*/	&kp HOME	&kp PG_DN	&kp PG_UP	&kp END		&kp PSCRN	&trans
-									&trans			&trans			&trans			&trans		/*║*/	&trans		&trans		&trans		&trans
+				&kp ESC	&kp F1			&kp F2			&kp F3			&kp F4			&kp F5		/*║*/	&kp F6		&kp F7		&kp F8		&kp F9		&kp F10		&kp DEL
+				&trans	&soft_off		&c_lboot 0 0	&out OUT_USB	&out OUT_BLE	&none		/*║*/	&kp MINUS	&kp EQUAL	&kp LBKT	&kp RBKT	&kp F11		&c_rboot 0 0
+				&trans	&kp C_VOL_DN	&kp C_VOL_UP	&kp C_PREV		&kp C_PP		&kp C_NEXT	/*║*/	&kp LEFT	&kp DOWN	&kp UP		&kp RIGHT	&kp F12		&trans
+				&trans	BTP_SEL(0)		BTP_SEL(1)		BTP_SEL(2)		BTP_SEL(3)		&c_bt 0 0	/*║*/	&kp HOME	&kp PG_DN	&kp PG_UP	&kp END		&kp PSCRN	&trans
+										&trans			&trans			&trans			&trans		/*║*/	&trans		&trans		&trans		&trans
 			>;
 		};
 	};
