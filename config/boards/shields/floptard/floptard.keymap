@@ -53,7 +53,7 @@
 		combo_qwerty_layer {COMMON_COMBO(&to L_QWERTY, KRC(4,0) KRC(4,7), L_MAIN L_GAME)};
 		combo_leave_qwerty_layer {COMMON_COMBO(&to L_MAIN, KRC(4,0) KRC(4,7), L_QWERTY)};
 
-		combo_home_row_mods {COMMON_COMBO(&to L_QWERTY, KRC(4,0) KRC(4,7) KRC(3,11), L_MAIN L_QWERTY L_GAME)};
+		combo_home_row_mods {COMMON_COMBO(&tog L_QWERTY, KRC(4,0) KRC(4,7) KRC(3,11), L_MAIN L_QWERTY L_GAME)};
 	};
 
 	macros {
@@ -112,8 +112,8 @@
 				&kp GRAVE	&kp N1	&kp N2		&kp N3		&kp N4		&kp N5		/*║*/	&kp N6		&kp N7		&kp N8		&kp N9		&kp N0				&kp BSPC
 				&kp TAB		&kp Q	&kp W		&kp F		&kp P		&kp B		/*║*/	&kp J		&kp L		&kp U		&kp Y		&kp SEMI			&kp BSLH
 				&kp LCTRL	&kp A	&kp R		&kp S		&kp T		&kp G		/*║*/	&kp M		&kp N		&kp E		&kp I		&kp O				&kp RET
-				&kp LSHFT	&kp Z	&kp X		&kp C		&kp D		&kp V		/*║*/	&kp K		&kp H		&kp COMMA	&kp DOT		&ht_keys FSLH SQT	&td_rs
-									&mo L_LOWER	&kp SPACE	&kp LGUI	&kp LALT	/*║*/	&kp RALT	&kp RGUI	&kp SPACE	&mo L_RAISE
+				&kp LSHFT	&kp Z	&kp X		&kp C		&kp D		&kp V		/*║*/	&kp K		&kp H		&kp COMMA	&kp DOT		&ht_keys SQT FSLH	&td_rs
+									&mo L_LOWER	&kp SPACE	&kp LALT	&kp LGUI	/*║*/	&kp RGUI	&kp RALT	&kp SPACE	&mo L_RAISE
 			>;
 		};
 
