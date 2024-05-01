@@ -93,7 +93,7 @@
 			tapping-term-ms = <150>;
 			flavor = "tap-preferred";
 			bindings = <&kp>, <&trans>;
-		}
+		};
 };
 
 	keymap {
