@@ -69,7 +69,7 @@
 		combo_qwerty_layer {COMMON_COMBO(&to L_QWERTY, KRC(4,0) KRC(4,7), L_MAIN L_GAME)};
 		combo_leave_qwerty_layer {COMMON_COMBO(&to L_MAIN, KRC(4,0) KRC(4,7), L_QWERTY)};
 
-		combo_home_row_mods {COMMON_COMBO(&tog L_HR_MODS, KRC(4,0) KRC(4,7) KRC(3,11), L_MAIN L_QWERTY L_GAME)};
+		combo_home_row_mods {COMMON_COMBO(&tog L_HR_COMMON, KRC(4,0) KRC(4,7) KRC(3,11), L_MAIN L_QWERTY L_GAME)};
 	};
 
 	macros {
