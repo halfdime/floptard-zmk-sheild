@@ -14,6 +14,9 @@
 #define L_RAISE 6
 #define L_LOWER 6
 
+#define LG_HR L_HR_COMMON L_HR_MAIN L_HR_QWERTY
+#define LG_TYPING L_HR_COMMON L_HR_MAIN L_HR_QWERTY
+
 #define DEFAULT_TAPTERM_MS 230
 #define COMBO_TIMEOUT 50
 #define MEANT_TO_TAP_TIME 2000
@@ -62,14 +65,14 @@
 		combo_esc {COMMON_COMBO(&kp ESC, KRC(0,0) KRC(1,0), L_MAIN L_QWERTY L_GAME)};
 
 		// LShift + Both layer keys
-		combo_game_layer {COMMON_COMBO(&to L_GAME, KRC(3,0) KRC(4,0) KRC(4,7), L_MAIN L_QWERTY)};
-		combo_leave_game_layer {COMMON_COMBO(&to L_MAIN, KRC(3,0) KRC(4,0) KRC(4,7), L_GAME)};
+		combo_game_layer {COMMON_COMBO(&to L_GAME, KRC(3,0) KRC(4,0) KRC(4,7), L_MAIN L_QWERTY LG_HR)};
+		combo_leave_game_layer {COMMON_COMBO(&to L_MAIN, KRC(3,0) KRC(4,0) KRC(4,7), L_GAME LG_HR)};
 
 		// Both layer keys
-		combo_qwerty_layer {COMMON_COMBO(&to L_QWERTY, KRC(4,0) KRC(4,7), L_MAIN L_GAME)};
-		combo_leave_qwerty_layer {COMMON_COMBO(&to L_MAIN, KRC(4,0) KRC(4,7), L_QWERTY)};
+		combo_qwerty_layer {COMMON_COMBO(&to L_QWERTY, KRC(4,0) KRC(4,7), L_MAIN L_GAME LG_HR)};
+		combo_leave_qwerty_layer {COMMON_COMBO(&to L_MAIN, KRC(4,0) KRC(4,7), L_QWERTY LG_HR)};
 
-		combo_home_row_mods {COMMON_COMBO(&tog L_HR_COMMON, KRC(4,0) KRC(4,7) KRC(3,11), L_MAIN L_QWERTY L_GAME)};
+		combo_home_row_mods {COMMON_COMBO(&tog L_HR_COMMON, KRC(4,0) KRC(4,7) KRC(3,11), LG_TYPING LG_HR)};
 	};
 
 	macros {
@@ -172,20 +175,20 @@
 
 		homerow_mods_default {
 			bindings = <
-				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans				&trans
-				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans				&trans
-				&trans	&ht_key LCTRL A	&ht_key LCTRL S	&ht_key LGUI D	&ht_key LALT F	&trans	/*║*/	&trans	&ht_key RALT J	&ht_key RGUI K	&ht_key RCTRL L	&ht_key RSHFT SEMI	&trans
-				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans				&trans
+				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans			&trans
+				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans			&trans
+				&trans	&ht_key LCTRL A	&ht_key LCTRL R	&ht_key LGUI S	&ht_key LALT T	&trans	/*║*/	&trans	&ht_key RALT N	&ht_key RGUI E	&ht_key RCTRL I	&ht_key RSHFT O	&trans
+				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans			&trans
 										&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans
 			>;
 		};
 
 		homerow_mods_qwerty {
 			bindings = <
-				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans			&trans
-				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans			&trans
-				&trans	&ht_key LCTRL A	&ht_key LCTRL R	&ht_key LGUI S	&ht_key LALT T	&trans	/*║*/	&trans	&ht_key RALT N	&ht_key RGUI E	&ht_key RCTRL I	&ht_key RSHFT O	&trans
-				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans			&trans
+				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans				&trans
+				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans				&trans
+				&trans	&ht_key LCTRL A	&ht_key LCTRL S	&ht_key LGUI D	&ht_key LALT F	&trans	/*║*/	&trans	&ht_key RALT J	&ht_key RGUI K	&ht_key RCTRL L	&ht_key RSHFT SEMI	&trans
+				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans				&trans
 										&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans
 			>;
 		};
