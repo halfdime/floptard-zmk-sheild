@@ -177,7 +177,7 @@
 			bindings = <
 				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans			&trans
 				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans			&trans
-				&trans	&ht_key LCTRL A	&ht_key LCTRL R	&ht_key LGUI S	&ht_key LALT T	&trans	/*║*/	&trans	&ht_key RALT N	&ht_key RGUI E	&ht_key RCTRL I	&ht_key RSHFT O	&trans
+				&trans	&ht_key LSHFT A	&ht_key LCTRL R	&ht_key LGUI S	&ht_key LALT T	&trans	/*║*/	&trans	&ht_key RALT N	&ht_key RGUI E	&ht_key RCTRL I	&ht_key RSHFT O	&trans
 				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans			&trans
 										&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans
 			>;
@@ -187,7 +187,7 @@
 			bindings = <
 				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans				&trans
 				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans				&trans
-				&trans	&ht_key LCTRL A	&ht_key LCTRL S	&ht_key LGUI D	&ht_key LALT F	&trans	/*║*/	&trans	&ht_key RALT J	&ht_key RGUI K	&ht_key RCTRL L	&ht_key RSHFT SEMI	&trans
+				&trans	&ht_key LSHFT A	&ht_key LCTRL S	&ht_key LGUI D	&ht_key LALT F	&trans	/*║*/	&trans	&ht_key RALT J	&ht_key RGUI K	&ht_key RCTRL L	&ht_key RSHFT SEMI	&trans
 				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans				&trans
 										&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans
 			>;
