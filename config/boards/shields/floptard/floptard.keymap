@@ -8,11 +8,13 @@
 #define L_MAIN 0
 #define L_GAME 1
 #define L_QWERTY 2
-#define L_HR_MODS 3
-#define L_RAISE 4
-#define L_LOWER 4
+#define L_HR_COMMON 3
+#define L_HR_MAIN 4
+#define L_HR_QWERTY 5
+#define L_RAISE 6
+#define L_LOWER 6
 
-#define DEFAULT_TAPTERM_MS 200
+#define DEFAULT_TAPTERM_MS 230
 #define COMBO_TIMEOUT 50
 #define MEANT_TO_TAP_TIME 2000
 
@@ -39,6 +41,20 @@
 };
 
 / {
+	conditional_layers {
+		compatible = "zmk,conditional-layers";
+
+		home_row_layer_main {
+			if-layers = <L_MAIN L_HR_COMMON>;
+			then-layer = <L_HR_MAIN>;
+		};
+
+		home_row_layer_qwerty {
+			if-layers = <L_QWERTY L_HR_COMMON>;
+			then-layer = <L_HR_QWERTY>;
+		};
+	};
+
 	combos {
 		compatible = "zmk,combos";
 
@@ -70,31 +86,22 @@
 			#binding-cells = <0>;
 
 			tapping-term-ms = <DEFAULT_TAPTERM_MS>;
-			bindings = <&kp RSHIFT>, <&kp RCTRL>;
+			bindings = <&kp RSHIFT>, <&kp RCTRL>, <&kp RCTRL>, <&kp RCTRL>;
 		};
 
 		c_lboot: left_careful_boot {CAREFUL_KEY(&bootloader)};
 		c_rboot: right_careful_boot {CAREFUL_KEY(&bootloader)};
 		c_bt: careful_bt {CAREFUL_KEY(&bt_clr)};
 
-		ht_keys: hold_tap_keys {
+		ht_key: hold_tap_keys {
 			compatible = "zmk,behavior-hold-tap";
 			#binding-cells = <2>;
 
-			tapping-term-ms = <150>;
+			tapping-term-ms = <DEAFAULT_TAPTERM_MS>;
 			flavor = "tap-preferred";
 			bindings = <&kp>, <&kp>;
 		};
-
-		ht_mod: hold_tap_homerow_mods {
-			compatible = "zmk,behavior-hold-tap";
-			#binding-cells = <2>;
-
-			tapping-term-ms = <150>;
-			flavor = "tap-preferred";
-			bindings = <&kp>, <&trans>;
-		};
-};
+	};
 
 	keymap {
 		compatible = "zmk,keymap";
@@ -153,13 +160,33 @@
 			>;
 		};
 
-		homerow_mods {
+		homerow_common {
 			bindings = <
-				&trans	&trans		&trans		&trans		&trans		&trans	/*║*/	&trans	&trans		&trans		&trans		&trans		&trans
-				&trans	&trans		&trans		&trans		&trans		&trans	/*║*/	&trans	&trans		&trans		&trans		&trans		&trans
-				&trans	HRM(LSHFT)	HRM(LCTRL)	HRM(LGUI)	HRM(LALT)	&trans	/*║*/	&trans	HRM(RALT)	HRM(RGUI)	HRM(RCTRL)	HRM(RSHFT)	&trans
-				&trans	&trans		&trans		&trans		&trans		&trans	/*║*/	&trans	&trans		&trans		&trans		&trans		&trans
-									&trans		&trans		&trans		&trans	/*║*/	&trans	&trans		&trans		&trans
+				&trans	&trans	&trans	&trans	&trans	&trans	/*║*/	&trans	&trans	&trans	&trans	&trans	&trans
+				&trans	&trans	&trans	&trans	&trans	&trans	/*║*/	&trans	&trans	&trans	&trans	&trans	&trans
+				&trans	&trans	&trans	&trans	&trans	&trans	/*║*/	&trans	&trans	&trans	&trans	&trans	&trans
+				&trans	&trans	&trans	&trans	&trans	&trans	/*║*/	&trans	&trans	&trans	&trans	&trans	&trans
+								&trans	&trans	&trans	&trans	/*║*/	&trans	&trans	&trans	&trans
+			>;
+		};
+
+		homerow_mods_default {
+			bindings = <
+				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans				&trans
+				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans				&trans
+				&trans	&ht_key LCTRL A	&ht_key LCTRL S	&ht_key LGUI D	&ht_key LALT F	&trans	/*║*/	&trans	&ht_key RALT J	&ht_key RGUI K	&ht_key RCTRL L	&ht_key RSHFT SEMI	&trans
+				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans				&trans
+										&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans
+			>;
+		};
+
+		homerow_mods_qwerty {
+			bindings = <
+				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans			&trans
+				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans			&trans
+				&trans	&ht_key LCTRL A	&ht_key LCTRL R	&ht_key LGUI S	&ht_key LALT T	&trans	/*║*/	&trans	&ht_key RALT N	&ht_key RGUI E	&ht_key RCTRL I	&ht_key RSHFT O	&trans
+				&trans	&trans			&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans			&trans			&trans
+										&trans			&trans			&trans			&trans	/*║*/	&trans	&trans			&trans			&trans
 			>;
 		};
 
