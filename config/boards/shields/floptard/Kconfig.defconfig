@@ -1,6 +1,6 @@
-if SHIELD_FLOPTARD_LEFT
+if SHIELD_FLOPTARD_RIGHT
 	config ZMK_KEYBOARD_NAME
-		default "Floptard"
+		default "Halfboard"
 
 	config ZMK_SPLIT_ROLE_CENTRAL
 		default y
